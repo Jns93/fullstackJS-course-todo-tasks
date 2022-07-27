@@ -1,16 +1,23 @@
-import Card from './Card.js';
+import Card from './Card';
 
 export default class Column {
-    constructor(name, hasTime = false) {
+    public name: string;
+    public cards: Card[];
+    public hasEstimative: boolean;
+    public estimativeTime: number;
+
+    constructor(name: string, hasEstimative: boolean = false) {
         this.name = name;
         this.cards = [];
-        this.hasTime = hasTime;
+        this.hasEstimative = hasEstimative;
         this.estimativeTime = 0;
+
+        if(this.name === '') throw new Error('Column name is required');
     }
 
-    addCard(name, time = null) {
+    addCard(name: string, time: number = 0) {
         if(time) {
-            if(!this.hasTime) {
+            if(!this.hasEstimative) {
                 return 'This column does not have time';
             } else {
                 this.estimativeTime += time;
