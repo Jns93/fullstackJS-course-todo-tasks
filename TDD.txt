@@ -1,0 +1,6 @@
+TDD
+
+1 - não escreva nenhum codigo até ter um teste que simule/detecte uma falha
+
+2 - Nao escreva mais testes do que o suficiente para detectar uma falha
+
