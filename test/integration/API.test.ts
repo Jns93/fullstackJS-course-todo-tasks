@@ -9,6 +9,7 @@ test("Deve retornar os quadros por meio da API", async function () {
     expect(boards).toHaveLength(1);
     const [board] = boards;
     expect(board.name).toBe("Projeto 1");
+    expect(board.estimative).toBe(6);
 });
 test("Deve retornar as colunas de um quadro por meio da API", async function () {
     const response =  await axios({
@@ -17,10 +18,13 @@ test("Deve retornar as colunas de um quadro por meio da API", async function () 
     });
     const columns = response.data;
     expect(columns).toHaveLength(3);
-    const [card1, column2, column3] = columns;
-    expect(card1.name).toBe("Coluna A");
+    const [column1, column2, column3] = columns;
+    expect(column1.name).toBe("Coluna A");
+    expect(column1.hasEstimative).toBe(true);
     expect(column2.name).toBe("Coluna B");
+    expect(column2.hasEstimative).toBe(true);
     expect(column3.name).toBe("Coluna C");
+    expect(column3.hasEstimative).toBe(false);
 });
 test("Deve retornar cartões de uma coluna por meio da API", async function () {
     const response =  await axios({
