@@ -1,6 +1,7 @@
 
 import express from 'express';
 import PgPromiseConnection from './infra/database/PgPromiseConnection';
+import BoardRepositoryDatabase from './infra/repository/BoardRepositoryDatabase';
 import BoardService from './services/BoardService';
 import CardService from './services/CardService';
 import ColumnService from './services/ColumnService';
@@ -9,9 +10,10 @@ import ColumnService from './services/ColumnService';
 const app = express();
 
 const connection = new PgPromiseConnection();
+const boardRepository = new BoardRepositoryDatabase(connection);
 
 app.get("/boards", async function (req, res) {
-    const boardService = new BoardService();
+    const boardService = new BoardService(boardRepository);
     const boards = await boardService.getBoards();
     res.json(boards);
 });
