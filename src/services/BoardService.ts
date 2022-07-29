@@ -1,15 +1,20 @@
-
+import Board from "../domain/entity/Board";
 import BoardRepository from "../domain/repository/BoardRepository";
 
 export default class BoardService {
 
-    constructor(readonly boardRepository: BoardRepository) {
-    }
-    
+	constructor (readonly boardRepository: BoardRepository) {
+	}
 
-    async getBoards() {
-        const boards = await this.boardRepository.findAll();
+	async getBoards (): Promise<Board[]> {
+		const boards = await this.boardRepository.findAll();
+		return boards;
+	}
 
-        return boards;
-    }
+	async saveBoard (): Promise<void> {
+
+	}
+
+	async updateBoard (): Promise<void> {
+	}
 }
