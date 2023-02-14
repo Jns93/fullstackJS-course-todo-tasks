@@ -11,13 +11,14 @@ test("Deve listar as colunas", async function () {
 	expect(columns).toHaveLength(3);
 	await connection.close();
 });
+
 test("Deve salvar uma coluna", async function () {
 	const connection = new PgPromiseConnection();
 	const columnRepository = new ColumnRepositoryDatabase(connection);
 	const columnService = new ColumnService(columnRepository);
-	const idColumn = await columnService.saveColumn(new Column(1, 1, 'Todo', true));
+	const idColumn = await columnService.saveColumn(new Column(1, 1, "Todo", true));
 	const column = await columnService.getColumn(idColumn);
-	expect(column.name).toBe('Todo');
+	expect(column.name).toBe("Todo")
 	await columnService.deleteColumn(idColumn);
 	await connection.close();
 });

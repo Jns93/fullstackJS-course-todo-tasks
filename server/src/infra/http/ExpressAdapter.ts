@@ -6,7 +6,7 @@ export default class ExpressAdapter implements Http {
 
     constructor() {  
         this.app = express();
-
+        this.app.use(express.json());
         //LIBERANDO CORS
         this.app.use(function (req: any, res: any, next: any) {
 			res.header("Access-Control-Allow-Origin", "*");

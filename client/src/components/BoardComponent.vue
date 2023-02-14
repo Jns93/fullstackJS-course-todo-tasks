@@ -16,7 +16,7 @@ let columnName = ref('');
 			<ColumnComponent :board="board" :column="column"></ColumnComponent>
 			<NewCardComponent :column="column" :board="board"></NewCardComponent>
 		</div>
-	<NewColumnComponent board:board></NewColumnComponent>
+	<NewColumnComponent :board="board"></NewColumnComponent>
 	</div>
 </div> 
 </template>

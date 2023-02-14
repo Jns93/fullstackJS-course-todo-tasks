@@ -17,7 +17,7 @@ export default class ColumnRepositoryDatabase implements ColumnRepository {
 	}
 
 	async save(column: Column): Promise<number> {
-		const [columnData] = await this.connection.query("insert into branas.column (id_board, name, has_estimative) values ($1, $2, $3) returning", [column.idBoard, column.name, column.hasEstimative]);
+		const [columnData] = await this.connection.query("insert into branas.column (id_board, name, has_estimative) values ($1, $2, $3) returning id_column", [column.idBoard, column.name, column.hasEstimative]);
 		return columnData.id_column;
 	}
 

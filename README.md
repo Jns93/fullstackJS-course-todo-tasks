@@ -6,11 +6,14 @@
 
 1. Iniciar a api: **npx ts-node src/main.ts**
 
-**2. Executar os testes:**
+2. Executar os testes: **npx jest**
 
-# API (Dir: client)
+# Front (Dir: client)
 
-1. Iniciar a api: **npm run dev**
+1. Iniciar o servidor dev: **npm run dev**
 
+2. Executar os testes: **npm run test**
 
-2. Executar os testes:**dsfg**
+# Commands DB
+Script para criar um novo banco de dados (postgres)
+**psql -d app -f create.sql**
