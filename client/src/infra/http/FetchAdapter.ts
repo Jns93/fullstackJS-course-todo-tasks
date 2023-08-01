@@ -1,4 +1,4 @@
-import HttpClient from "./HttpClient";
+import HttpClient from "./httpClient";
 
 export default class FetchAdapter implements HttpClient {
 
@@ -16,4 +16,10 @@ export default class FetchAdapter implements HttpClient {
 		return response.json();
 	}
 
+	async put() {
+
+	}
+	async delete() {
+		
+	}
 }
